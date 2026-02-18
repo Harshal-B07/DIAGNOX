@@ -1,0 +1,626 @@
+2026-02-16 00:55:27,542 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 00:55:30,559 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 00:55:30,559 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 00:55:36,195 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 00:55:36,195 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 00:55:36,195 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 00:55:57,538 - LabInterpretationAgent - INFO - ✅ Extracted 56 lab parameters.
+2026-02-16 00:55:59,541 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 00:55:59,546 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 00:56:12,688 - ConditionHypothesisAgent - INFO - Generated 4 potential conditions.
+2026-02-16 00:56:14,694 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 00:56:14,694 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:07:52,645 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 01:07:56,158 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 01:07:56,158 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:08:03,811 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 01:08:03,811 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 01:08:03,811 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:08:23,319 - LabInterpretationAgent - INFO - ✅ Extracted 54 lab parameters.
+2026-02-16 01:08:25,322 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 01:08:25,322 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:08:33,348 - ConditionHypothesisAgent - INFO - Generated 3 potential conditions.
+2026-02-16 01:08:35,354 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 01:08:35,354 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:25:05,418 - Dr. Diagna - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:25:35,676 - Dr. Diagna - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:38:16,754 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 01:38:19,907 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 01:38:19,907 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:38:27,649 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 01:38:27,649 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 01:38:27,649 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:38:59,793 - LabInterpretationAgent - INFO - ✅ Extracted 56 lab parameters.
+2026-02-16 01:39:01,796 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 01:39:01,797 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:39:02,302 - ConditionHypothesisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 10s to cool down...
+2026-02-16 01:39:12,309 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:39:12,745 - ConditionHypothesisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 20s to cool down...
+2026-02-16 01:39:32,754 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:39:33,329 - ConditionHypothesisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 40s to cool down...
+2026-02-16 01:40:13,335 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:40:13,885 - ConditionHypothesisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 60s to cool down...
+2026-02-16 01:41:13,891 - ConditionHypothesisAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:41:14,552 - ConditionHypothesisAgent - ERROR - ❌ API Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 46.620214943s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 46
+}
+]
+2026-02-16 01:41:16,559 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 01:41:16,561 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:41:17,348 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 10s to cool down...
+2026-02-16 01:41:27,353 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:41:28,223 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 20s to cool down...
+2026-02-16 01:41:48,230 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:41:49,014 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 40s to cool down...
+2026-02-16 01:42:29,017 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:42:29,660 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 60s to cool down...
+2026-02-16 01:43:29,672 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:43:30,484 - SynthesizerAgent - ERROR - ❌ API Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 30.683771723s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 30
+}
+]
+2026-02-16 01:43:52,213 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 01:43:54,873 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 01:43:54,873 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:43:55,782 - FileAnalysisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 10s to cool down...
+2026-02-16 01:44:05,786 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:44:06,434 - FileAnalysisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 20s to cool down...
+2026-02-16 01:44:26,438 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:44:27,115 - FileAnalysisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 40s to cool down...
+2026-02-16 01:45:07,119 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:45:08,612 - FileAnalysisAgent - WARNING - ⚠️ Quota Exceeded. Waiting 60s to cool down...
+2026-02-16 01:46:08,615 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:46:09,518 - FileAnalysisAgent - ERROR - ❌ API Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 51.700430157s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 51
+}
+]
+2026-02-16 01:46:11,519 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 01:46:11,519 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 01:46:11,520 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:46:12,589 - LabInterpretationAgent - WARNING - ⚠️ Quota Exceeded. Waiting 10s to cool down...
+2026-02-16 01:46:22,591 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:46:23,545 - LabInterpretationAgent - WARNING - ⚠️ Quota Exceeded. Waiting 20s to cool down...
+2026-02-16 01:46:43,547 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:46:44,743 - LabInterpretationAgent - WARNING - ⚠️ Quota Exceeded. Waiting 40s to cool down...
+2026-02-16 01:47:24,748 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:47:26,317 - LabInterpretationAgent - WARNING - ⚠️ Quota Exceeded. Waiting 60s to cool down...
+2026-02-16 01:48:26,320 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:48:27,448 - LabInterpretationAgent - ERROR - ❌ API Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 33.723731073s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 33
+}
+]
+2026-02-16 01:48:27,448 - LabInterpretationAgent - WARNING - Agent returned no results.
+2026-02-16 01:48:29,452 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 01:48:29,452 - ConditionHypothesisAgent - INFO - No abnormalities found. Returning healthy status.
+2026-02-16 01:48:31,455 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 01:48:31,455 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:48:32,673 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 10s to cool down...
+2026-02-16 01:48:42,675 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:48:43,425 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 20s to cool down...
+2026-02-16 01:49:03,428 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:49:03,894 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 40s to cool down...
+2026-02-16 01:49:43,905 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:49:44,619 - SynthesizerAgent - WARNING - ⚠️ Quota Exceeded. Waiting 60s to cool down...
+2026-02-16 01:50:44,623 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:50:45,587 - SynthesizerAgent - ERROR - ❌ API Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 15.592593977s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 15
+}
+]
+2026-02-16 01:51:18,738 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 01:51:21,482 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 01:51:21,482 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:51:22,244 - FileAnalysisAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:22,244 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:51:22,540 - FileAnalysisAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:22,540 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:51:22,853 - FileAnalysisAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:22,853 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:51:23,268 - FileAnalysisAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:23,269 - FileAnalysisAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:51:23,571 - FileAnalysisAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:25,580 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 01:51:25,581 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 01:51:25,581 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:51:26,041 - LabInterpretationAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:26,041 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:51:26,321 - LabInterpretationAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:26,321 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:51:26,580 - LabInterpretationAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:26,580 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:51:26,881 - LabInterpretationAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:26,881 - LabInterpretationAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:51:27,163 - LabInterpretationAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:27,164 - LabInterpretationAgent - WARNING - Agent returned no results.
+2026-02-16 01:51:29,166 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 01:51:29,166 - ConditionHypothesisAgent - INFO - No abnormalities found. Returning healthy status.
+2026-02-16 01:51:31,168 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 01:51:31,168 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 1)...
+2026-02-16 01:51:31,509 - SynthesizerAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:31,511 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 2)...
+2026-02-16 01:51:31,773 - SynthesizerAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:31,775 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 3)...
+2026-02-16 01:51:32,044 - SynthesizerAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:32,046 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 4)...
+2026-02-16 01:51:32,304 - SynthesizerAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:51:32,304 - SynthesizerAgent - INFO - Sending request to Gemini (Attempt 5)...
+2026-02-16 01:51:32,488 - SynthesizerAgent - WARNING - ⚠️ Model 'gemini-1.5-flash' unavailable. Switching to 'gemini-1.5-flash'.
+2026-02-16 01:58:17,895 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 01:58:20,973 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 01:58:22,381 - FileAnalysisAgent - WARNING - ⚠️ Attempt 1 failed with gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 38.823777996s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 38
+}
+]
+2026-02-16 01:58:22,381 - FileAnalysisAgent - WARNING - 🔄 Downgrading to Stable Model: gemini-1.5-flash
+2026-02-16 01:58:23,716 - FileAnalysisAgent - WARNING - ⚠️ Attempt 2 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 01:58:29,046 - FileAnalysisAgent - WARNING - ⚠️ Attempt 3 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 01:58:31,050 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 01:58:31,050 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 01:58:31,711 - LabInterpretationAgent - WARNING - ⚠️ Attempt 1 failed with gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 29.467707314s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 29
+}
+]
+2026-02-16 01:58:31,714 - LabInterpretationAgent - WARNING - 🔄 Downgrading to Stable Model: gemini-1.5-flash
+2026-02-16 01:58:33,140 - LabInterpretationAgent - WARNING - ⚠️ Attempt 2 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 01:58:38,579 - LabInterpretationAgent - WARNING - ⚠️ Attempt 3 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 01:58:38,579 - LabInterpretationAgent - WARNING - Agent returned no results.
+2026-02-16 01:58:40,581 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 01:58:40,581 - ConditionHypothesisAgent - INFO - No abnormalities found. Returning healthy status.
+2026-02-16 01:58:42,583 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 01:58:43,278 - SynthesizerAgent - WARNING - ⚠️ Attempt 1 failed with gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 17.938342913s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 17
+}
+]
+2026-02-16 01:58:43,278 - SynthesizerAgent - WARNING - 🔄 Downgrading to Stable Model: gemini-1.5-flash
+2026-02-16 01:58:44,611 - SynthesizerAgent - WARNING - ⚠️ Attempt 2 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 01:58:49,848 - SynthesizerAgent - WARNING - ⚠️ Attempt 3 failed with gemini-1.5-flash: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-02-16 02:15:43,159 - Orchestrator - INFO - --- Starting Analysis Pipeline (Type: LAB_REPORT) ---
+2026-02-16 02:15:44,905 - FileAnalysisAgent - INFO - Starting File Analysis & Classification...
+2026-02-16 02:15:46,150 - FileAnalysisAgent - WARNING - ⚠️ Attempt 1 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 15.217575177s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 15
+}
+]
+2026-02-16 02:15:46,153 - FileAnalysisAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash
+2026-02-16 02:15:47,437 - FileAnalysisAgent - WARNING - ⚠️ Attempt 2 failed on gemini-2.0-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 13.485476528s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 13
+}
+]
+2026-02-16 02:15:47,438 - FileAnalysisAgent - WARNING - 🚦 Rate Limit Hit on Backup. Hopping back to Primary: gemini-2.5-flash
+2026-02-16 02:15:50,332 - FileAnalysisAgent - WARNING - ⚠️ Attempt 3 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 11.098546239s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 11
+}
+]
+2026-02-16 02:15:50,348 - FileAnalysisAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash
+2026-02-16 02:15:53,350 - Orchestrator - INFO - Route: Standard Lab Analysis
+2026-02-16 02:15:53,350 - LabInterpretationAgent - INFO - Starting Universal Lab Analysis...
+2026-02-16 02:15:53,930 - LabInterpretationAgent - WARNING - ⚠️ Attempt 1 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 7.241468s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 7
+}
+]
+2026-02-16 02:15:53,930 - LabInterpretationAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash
+2026-02-16 02:15:55,237 - LabInterpretationAgent - WARNING - ⚠️ Attempt 2 failed on gemini-2.0-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 5.67651955s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 5
+}
+]
+2026-02-16 02:15:55,237 - LabInterpretationAgent - WARNING - 🚦 Rate Limit Hit on Backup. Hopping back to Primary: gemini-2.5-flash
+2026-02-16 02:15:57,742 - LabInterpretationAgent - WARNING - ⚠️ Attempt 3 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 3.386688718s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 3
+}
+]
+2026-02-16 02:15:57,742 - LabInterpretationAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash
+2026-02-16 02:15:58,755 - LabInterpretationAgent - WARNING - Agent returned no results.
+2026-02-16 02:16:00,756 - ConditionHypothesisAgent - INFO - Starting Diagnostic Hypothesis Generation...
+2026-02-16 02:16:00,756 - ConditionHypothesisAgent - INFO - No abnormalities found. Returning healthy status.
+2026-02-16 02:16:02,758 - SynthesizerAgent - INFO - Synthesizing final diagnostic report...
+2026-02-16 02:16:03,752 - SynthesizerAgent - WARNING - ⚠️ Attempt 1 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 57.766712994s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 57
+}
+]
+2026-02-16 02:16:03,752 - SynthesizerAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash
+2026-02-16 02:16:04,991 - SynthesizerAgent - WARNING - ⚠️ Attempt 2 failed on gemini-2.0-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 55.951132451s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 55
+}
+]
+2026-02-16 02:16:04,993 - SynthesizerAgent - WARNING - 🚦 Rate Limit Hit on Backup. Hopping back to Primary: gemini-2.5-flash
+2026-02-16 02:16:07,438 - SynthesizerAgent - WARNING - ⚠️ Attempt 3 failed on gemini-2.5-flash: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash
+Please retry in 53.754648489s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 20
+}
+, retry_delay {
+  seconds: 53
+}
+]
+2026-02-16 02:16:07,438 - SynthesizerAgent - WARNING - 🚦 Rate Limit Hit on Primary. Hopping to Backup: gemini-2.0-flash

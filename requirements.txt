@@ -1,0 +1,16 @@
+
+google-generativeai
+google.genai
+python-dotenv
+pdfplumber
+pandas
+audio-recorder-streamlit
+pydub
+streamlit
+pydantic
+watchdog
+plotly
+pillow
+fpdf2
+gTTS
+pytesseract
