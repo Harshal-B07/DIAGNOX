@@ -6,7 +6,7 @@ pdfplumber
 pandas
 audio-recorder-streamlit
 pydub
-streamlit
+streamlit>=1.33.0
 pydantic
 watchdog
 plotly
