@@ -1,11 +1,15 @@
 import streamlit as st
 import time
+import json # 🆕 ADDED: JSON FOR SAVING DICTS TO SUPABASE
 from datetime import datetime
 from reasoning.orchestrator import Orchestrator
 from utils.logger import get_logger
 from utils.report_generator import create_pdf_report
 from utils.audio_generator import generate_audio_summary
 from agents.dr_ai_agent import DrDiagnaAgent
+
+# 🆕 ADDED: SUPABASE IMPORT
+from supabase import create_client, Client
 
 # --- 1. PAGE CONFIGURATION ---
 st.set_page_config(
@@ -125,6 +129,66 @@ if "analysis_result" not in st.session_state:
 if "current_page" not in st.session_state:
     st.session_state.current_page = "Home"
 
+# ---------------------------------------------------------
+# 🆕 ADDED: SUPABASE CONNECTION & LOGIN SYSTEM 🆕
+# ---------------------------------------------------------
+@st.cache_resource
+def init_connection():
+    url = st.secrets["SUPABASE_URL"]
+    key = st.secrets["SUPABASE_KEY"]
+    return create_client(url, key)
+
+supabase: Client = init_connection()
+
+def login_page():
+    st.markdown("""
+        <div style="text-align: center; padding-top: 40px; padding-bottom: 20px;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 10px; color: #20c997; text-shadow: 2px 2px 0px #e6fcf5;">DIAGNOX</h1>
+            <p style="font-size: 1.2rem; color: #6c757d;">Secure AI Diagnostic Vault</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+    tab1, tab2 = st.tabs(["🔒 Login", "📝 Sign Up"])
+
+    with tab1:
+        login_email = st.text_input("Email", key="login_email")
+        login_password = st.text_input("Password", type="password", key="login_pass")
+        if st.button("Login", use_container_width=True, type="primary"):
+            try:
+                response = supabase.auth.sign_in_with_password({"email": login_email, "password": login_password})
+                st.session_state["user_id"] = response.user.id
+                st.session_state["user_email"] = response.user.email
+                st.rerun()
+            except Exception as e:
+                st.error("Invalid email or password. Please try again.")
+
+    with tab2:
+        signup_email = st.text_input("Email", key="signup_email")
+        signup_password = st.text_input("Password", type="password", key="signup_pass")
+        if st.button("Sign Up", use_container_width=True, type="primary"):
+            
+            # --- CUSTOM PASSWORD VALIDATION ---
+            has_letters = any(char.isalpha() for char in signup_password)
+            has_numbers = any(char.isdigit() for char in signup_password)
+            
+            if not (has_letters and has_numbers):
+                st.error("⚠️ Password must contain a mix of both letters and numbers.")
+            else:
+                # --- SUPABASE SIGNUP ---
+                try:
+                    response = supabase.auth.sign_up({"email": signup_email, "password": signup_password})
+                    st.success("✅ Account created successfully! You can now log in.")
+                except Exception as e:
+                    # This will now print the ACTUAL error from Supabase
+                    st.error(f"⚠️ Error creating account: {e}")
+
+# THE GATEKEEPER: Halts the app here if not logged in
+if "user_id" not in st.session_state:
+    login_page()
+    st.stop()
+# ---------------------------------------------------------
+
+
 # Text Streaming Helper
 def stream_data(text):
     for word in text.split(" "):
@@ -149,9 +213,19 @@ with st.sidebar:
     st.title("DIAGNOX")
     st.caption("Multimodal Clinical Intelligence")
     
+    # 🆕 ADDED: LOGOUT BUTTON 🆕
+    st.markdown(f"**User:** `{st.session_state['user_email']}`")
+    if st.button("🚪 Logout", use_container_width=True):
+        st.session_state.clear()
+        st.rerun()
+    st.markdown("---")
     
     if st.button("🏠 Home", use_container_width=True):
         navigate_to("Home")
+        
+    # 🆕 ADDED HISTORY BUTTON 🆕
+    if st.button("📂 My History", use_container_width=True):
+        navigate_to("History")
     
     if st.session_state.analysis_result:
         if st.button("📊 Executive Dashboard", use_container_width=True):
@@ -159,7 +233,6 @@ with st.sidebar:
         if st.button("🔬 Deep Dive Analysis", use_container_width=True):
             navigate_to("Deep Dive")
             
-    
     st.info("**Privacy Ensured!**\n\nNo patient data is stored.")
     st.markdown("BY Harshal Bhosale")
 
@@ -240,6 +313,23 @@ if st.session_state.current_page == "Home":
                 else:
                     st.session_state.analysis_result = result
                     st.session_state.chat_history = [{"role": "assistant", "content": f"Hello! I am Dr. Diagna. I've analyzed the {current_type_name}. I see some findings that might need attention. How can I help you?"}]
+                    
+                    # --- 🆕 SAVE TO SUPABASE VAULT 🆕 ---
+                    try:
+                        report_title = f"{current_type_name} - {datetime.now().strftime('%d %b %Y')}"
+                        db_data = {
+                            "user_id": st.session_state["user_id"],
+                            "report_title": report_title,
+                            "document_type": st.session_state.doc_type,
+                            "original_filename": uploaded_file.name,
+                            "analysis_result": json.dumps(result) # Convert dict to string
+                        }
+                        supabase.table("medical_history").insert(db_data).execute()
+                    except Exception as e:
+                        # If the firewall blocks it locally, it will just show a tiny warning but won't crash the app
+                        st.toast("Warning: Could not save to cloud vault (Local Network Block)")
+                    # ------------------------------------
+                    
                     navigate_to("Dashboard")
                     st.rerun()
 
@@ -419,6 +509,37 @@ elif st.session_state.current_page == "Deep Dive":
                 st.write(f"**{item.get('parameter')}**: {item.get('value')} ({item.get('status')})")
         else:
              st.info("No detailed biomarkers detected.")
+
+# === 🆕 PAGE 4: HISTORY 🆕 ===
+elif st.session_state.current_page == "History":
+    st.title("📂 My Medical Vault")
+    st.markdown("Securely access your past AI diagnostic reports.")
+    st.markdown("---")
+
+    try:
+        # Fetch records for this specific user, newest first
+        response = supabase.table("medical_history").select("*").eq("user_id", st.session_state["user_id"]).order("created_at", desc=True).execute()
+        records = response.data
+
+        if not records:
+            st.info("No past medical reports found in your vault. Upload a document on the Home page to get started!")
+        else:
+            for record in records:
+                with st.expander(f"📄 {record['report_title']} (File: {record['original_filename']})"):
+                    # Format the date nicely
+                    date_obj = datetime.strptime(record['created_at'][:10], '%Y-%m-%d')
+                    st.caption(f"Analyzed on: {date_obj.strftime('%B %d, %Y')}")
+                    
+                    if st.button("🔍 Load Full Analysis", key=f"load_{record['id']}", use_container_width=True):
+                        # Restore the data into the app and jump to Dashboard
+                        st.session_state.analysis_result = json.loads(record['analysis_result'])
+                        st.session_state.chat_history = [{"role": "assistant", "content": f"Hello! I am Dr. Diagna. I've re-loaded your past report. How can I help you?"}]
+                        navigate_to("Dashboard")
+                        st.rerun()
+                        
+    except Exception as e:
+        st.error(f"Could not connect to the database. ({e})")
+
 
 # ==========================================
 # 💬 PHASE 3: DR. DIAGNA INTELLIGENT CHAT

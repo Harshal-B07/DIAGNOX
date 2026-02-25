@@ -11,4 +11,4 @@ __pycache__/
 .env
 
 # Streamlit local config
-.streamlit/config.toml
+.streamlit/
