@@ -232,8 +232,7 @@ with st.sidebar:
             navigate_to("Dashboard")
         if st.button("🔬 Deep Dive Analysis", use_container_width=True):
             navigate_to("Deep Dive")
-            
-    st.info("**Privacy Ensured!**\n\nNo patient data is stored.")
+    
     st.markdown("BY Harshal Bhosale")
 
 # --- 5. PAGE LOGIC ---
